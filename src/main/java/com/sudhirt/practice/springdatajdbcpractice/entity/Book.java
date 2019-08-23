@@ -8,7 +8,9 @@ import org.springframework.util.Assert;
 
 import java.time.Instant;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -20,7 +22,7 @@ public class Book {
 	private Long id;
 	private String name;
 	private String isbn;
-	private Set<AuthorRef> authorRefList;
+	private List<AuthorRef> authorRefList;
 	private Double price;
 	private LocalDate publishedDate;
 	@CreatedBy
@@ -34,7 +36,7 @@ public class Book {
 
 	public void addAuthor(Author author) {
 		if(authorRefList == null) {
-			authorRefList = new HashSet<>();
+			authorRefList = new ArrayList<>();
 		}
 		authorRefList.add(createAuthorRef(author));
 	}
